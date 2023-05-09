@@ -77,7 +77,7 @@ namespace VCMS411
             {
                 app.UseHsts();
             }
-
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
@@ -85,7 +85,7 @@ namespace VCMS411
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "A API v1");
             });
-            app.UseCors(builder => builder.WithOrigins("http://localhost:62081").AllowAnyMethod().AllowAnyHeader());
+            
             app.UseHttpsRedirection();
             app.UseMvc();
 
